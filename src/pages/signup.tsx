@@ -27,30 +27,7 @@ export const Signup = () => {
         }))
     }
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        setError("")
-        setSuccessMessage("")
-        
-        // Validate inputs
-        if (!user.email || !user.password || !user.confirmPassword) {
-            setError("Please fill in all fields")
-            return
-        }
-        
-        if (user.password !== user.confirmPassword) {
-            setError("Passwords do not match")
-            return
-        }
-        
-        if (user.password.length < 6) {
-            setError("Password must be at least 6 characters")
-            return
-        }
-        
-        // Send signup request
 
-    }
 const handelSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")

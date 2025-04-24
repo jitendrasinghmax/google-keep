@@ -9,7 +9,7 @@ export const AddCollaborator = ({setNote,note}:{setNote:React.Dispatch<React.Set
     const [search,setSearch]=useState("");
     const [result,setResult]=useState<any[]>([]);
     const [colaborators,setColaborators]=useState<{email:string,_id:string}[]>([]);
-    const {fetchData,resp,error,loading}=useFetch();
+    const {fetchData,resp}=useFetch();
 
     //handeler
     

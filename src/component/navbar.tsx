@@ -15,7 +15,7 @@ export const Navbar = () => {
         showEditNote({show:true,id:id})
         setSuggestions([]);
     }
-    const {fetchData,resp,error,loading}=useFetch();
+    const {fetchData,resp,loading}=useFetch();
     const logOut=useFetch();
     const logoutHandeler=()=>{
         logOut.fetchData(`/api/user/logout`, "POST")

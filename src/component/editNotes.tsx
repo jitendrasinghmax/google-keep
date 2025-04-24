@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import { dark } from "../style/dark"
 import { noteAtomFamily, ShowEditNoteAtom } from "../store/atom";
 import { useRecoilState, useSetRecoilState } from "recoil";

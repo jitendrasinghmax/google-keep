@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useFetch } from "../hook/useFetch";
 import Note  from "./note";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { createNoteAtom, deleteNoteAtom } from "../store/atom";
+import {  useRecoilValue } from "recoil";
+import { createNoteAtom } from "../store/atom";
 import { useNavigate } from "react-router-dom";
 
 export interface NoteIdsInterface{
