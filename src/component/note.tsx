@@ -12,7 +12,7 @@ const Note = ({id,deleteHandeler}:{id:string,deleteHandeler:(id:string)=>void}) 
     const setNote = useSetRecoilState(noteAtomFamily(id));
     const note = useRecoilValueLoadable(noteSelectorFamily(id));
     const showEditNote=useSetRecoilState(ShowEditNoteAtom)
-    const { fetchData, resp, error, loading } = useFetch();
+    const { fetchData, resp, loading } = useFetch();
     useEffect(() => {
         if (id) {
             //fetch note from database and set it to the atom
