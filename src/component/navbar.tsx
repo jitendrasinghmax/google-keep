@@ -61,7 +61,7 @@ export const Navbar = () => {
             setSuggestions(searchFetch.resp.suggestions)
         }
     },[searchFetch.resp])
-
+console.log(email)
 
     return <div className="h-10 w-full flex justify-between py-2 px-10">
         <div className="text-white font-bold text-2xl mr-5 ">Keep</div>
@@ -83,7 +83,7 @@ export const Navbar = () => {
                 </div>
         </div>
         <div ref={logoutRef} className="text-white h-full w-fit flex justify-center items-center ">
-            <div className="text-white font-bold text-xs px-2 my-auto">{email}</div>
+            {/* <div className="text-white font-bold text-xs px-2 my-auto">{email}</div> */}
             <div 
                 onClick={logoutHandeler}
                 className="text-red-300 px-2 py-2 my-auto bg-gray-700 rounded-md cursor-pointer">{loading?"Logging Out...":"Logout"}</div>

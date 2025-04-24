@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 export const Sidebar = () => {
-    const isMobile = useMedia('(max-width: 1024px)');
+    const isMobile = useMedia('(max-width: 639px)');
     const [style,setStyle] = useState("")
     useEffect(()=>{
         if(isMobile){

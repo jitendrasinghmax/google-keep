@@ -17,11 +17,11 @@ const AppLayout=()=>{
     <Toaster/>
     <div className="h-screen overflow-hidden bg-gray-900 p-x-5">
         <div className={`w-full h-16 border-b-2 ${dark.border}`}><Navbar /></div>
-        <div className="h-screen w-full grid grid-cols-12">
-            <div className="h-full col-span-1 lg:col-span-2">
+        <div className="h-screen w-full flex">
+            <div className="h-full w-16 sm:w-40">
                 <Sidebar />
             </div>
-            <div className="flex flex-col gap-7 col-span-11 lg:col-span-10 overflow-auto scrollbar-hide relative">
+            <div className="flex flex-col gap-7 w-full overflow-auto scrollbar-hide relative">
                 {ShowEditNote.show && <EditNotes id={ShowEditNote.id} />}
                 <Outlet/>
             </div>

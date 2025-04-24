@@ -30,6 +30,24 @@ const CreateNote = () => {
     const titleref = useRef<HTMLTextAreaElement>(null);
     
     const noteDivRef=useRef<HTMLDivElement>(null);
+    //handelers
+    const saveHandeler=()=>{
+        setCreateNote({
+            title:note.title,
+            note:note.note,
+            backgroundColor:note.backgroundColor,
+            colaborators:note.colaborators
+        })
+        setShowNoteArea(false)
+        setNote({
+            title:"",
+            note:"",
+            backgroundColor:"#111827",
+            id:"",
+            posted:true,
+            colaborators:[] 
+        })
+    }
 
     //hooks
     useClickOutside(()=>{
@@ -75,7 +93,7 @@ const CreateNote = () => {
                         title:e.target.value
                     }
                 })}
-                placeholder="Title..."
+                placeholder="Add Title..."
                 style={{
                     resize: 'none',
                     overflow: 'hidden',
@@ -101,7 +119,7 @@ const CreateNote = () => {
                 }}
             />
             {/*tool bar*/}
-            <div  className="h-fit">
+            <div  className="h-fit flex flex-col gap-y-2">
                 {/* <div 
                 onClick={()=>setShowColorPicker((prev)=>!prev)}
                 ref={colorPickerRef} 
@@ -122,6 +140,7 @@ const CreateNote = () => {
                 <div className="w-full">
                         <AddCollaborator note={note} setNote={setNote}/>
                     </div>
+                <div className="flex justify-end"><button onClick={saveHandeler} className="bg-gray-200 text-gray-900 px-4 py-2 rounded-md">Save</button></div>
             </div>
            </div>
         </div>
