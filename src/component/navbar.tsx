@@ -64,7 +64,7 @@ export const Navbar = () => {
             setSuggestions(searchFetch.resp.suggestions)
         }
     },[searchFetch.resp])
-
+    console.log(email)
     return <div className="h-10 w-full flex justify-between py-2 px-10">
         <div className="text-white font-bold text-2xl mr-5 ">Keep</div>
         <div  className="w-2/3">
