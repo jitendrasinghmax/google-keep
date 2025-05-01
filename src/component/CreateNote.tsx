@@ -81,7 +81,7 @@ const CreateNote = () => {
     
     return (
         <div ref={noteDivRef} 
-         className={`h-fit w-4/5 sm:w-1/2 mx-auto mt-10 p-4  bg-gray-800 rounded-lg  transition-all duration-300`}>
+         className={`h-fit w-4/5 sm:w-2/3 mx-auto mt-10 p-4  bg-gray-800 rounded-lg  transition-all duration-300`}>
             <textarea
                 onFocus={()=>setShowNoteArea(true)}
                 className={`w-full h-12 py-2 px-4 text-xl bg-transparent  text-white font-bold rounded-lg focus:outline-none `}

@@ -4,12 +4,13 @@ import { IoPersonAdd } from "react-icons/io5"
 import { noteInterface } from "./CreateNote";
 import  useDebounce  from "../hook/useDebounce";
 import { useFetch } from "../hook/useFetch";
+import { Loader } from "../loader/loader";
 
 export const AddCollaborator = ({setNote,note}:{setNote:React.Dispatch<React.SetStateAction<noteInterface>>,note:noteInterface}) => {
     const [search,setSearch]=useState("");
     const [result,setResult]=useState<any[]>([]);
     const [colaborators,setColaborators]=useState<{email:string,_id:string}[]>([]);
-    const {fetchData,resp}=useFetch();
+    const {fetchData,resp,loading}=useFetch();
 
     //handeler
     
@@ -36,14 +37,14 @@ export const AddCollaborator = ({setNote,note}:{setNote:React.Dispatch<React.Set
         }
     },[resp])
     return <div className="h-fit w-full p-2 flex flex-col  bg-gray-500 rounded-md">
-        <div className="h-10 w-full px-5 rounded-md bg-gray-700 flex justify-start items-center gap-x-5">
-            <IoPersonAdd className="text-white" />
+        <div className="h-10 w-full px-2 rounded-md bg-gray-700 flex justify-start items-center gap-x-5">
+            <IoPersonAdd className="text-white h-10 w-10" />
             <input type="text"
                 value={search}
                 onChange={(e)=>setSearch(e.target.value)}
                 placeholder="Add Collaborator"
-                className="bg-transparent text-white outline-none " />
-           
+                className="bg-transparent text-white outline-none max-w-32" />
+           <div className="w-full flex justify-between"> <div></div>{loading&&<Loader/>}</div>
         </div>
         <div style={{display:result.length>0&&search.length>0?"block":"none"}} className="h-fit w-full ">
             {result.map((item:any,index:number)=>{

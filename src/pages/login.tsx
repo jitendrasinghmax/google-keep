@@ -7,8 +7,8 @@ import { Toaster } from "react-hot-toast"
 
 export const Login = () => {
     const [credentials, setCredentials] = useState({
-        email: "",
-        password: ""
+        email: "example@gmail.com",
+        password: "123456"
     })
     const [error, setError] = useState("")
     const navigate = useNavigate();
@@ -46,7 +46,7 @@ export const Login = () => {
         if (resp) {
             console.log(resp)
             if (resp.user) {
-               navigate("/");
+               navigate("/start");
             } else if (resp.error) {
                 setError(resp.error)
             }

@@ -4,18 +4,20 @@ import useDebounce from "../hook/useDebounce";
 import { ShowEditNoteAtom } from "../store/atom";
 import { useSetRecoilState } from "recoil";
 import { useClickOutside } from "../hook/onClickoutside";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
     const [search,setSearch]=useState<string>("");
     const [suggestions,setSuggestions]=useState<string[]>([]);
     const [email,setEmail]=useState<string>("");
+    const navigate=useNavigate()
     const searchFetch=useFetch();
     const showEditNote=useSetRecoilState(ShowEditNoteAtom)
     const showEditNoteHandeler=(id:string)=>{
         showEditNote({show:true,id:id})
         setSuggestions([]);
     }
-    const {fetchData,resp,loading}=useFetch();
+    const {fetchData,resp,loading,error}=useFetch();
     const logOut=useFetch();
     const logoutHandeler=()=>{
         logOut.fetchData(`/api/user/logout`, "POST")
@@ -36,10 +38,11 @@ export const Navbar = () => {
         fetchData(`/api/user/userEmail`, "POST")
     },[])
     useEffect(()=>{
-        if(logOut.resp){
-            window.location.href="/login"
+        if(logOut.resp||error){
+           navigate('/login')
         }
-    },[logOut.resp])
+
+    },[logOut.resp,error])
 
     useEffect(()=>{
         console.log(resp)
@@ -61,7 +64,6 @@ export const Navbar = () => {
             setSuggestions(searchFetch.resp.suggestions)
         }
     },[searchFetch.resp])
-console.log(email)
 
     return <div className="h-10 w-full flex justify-between py-2 px-10">
         <div className="text-white font-bold text-2xl mr-5 ">Keep</div>
